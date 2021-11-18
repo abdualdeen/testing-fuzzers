@@ -1,4 +1,4 @@
-import rapidfuzz, subprocess, random, sys, os
+from rapidfuzz import fuzz
 
 def read_gcov_coverage(cFile):
     gcov_file = cFile + ".gcov"
@@ -16,7 +16,7 @@ def read_gcov_coverage(cFile):
 
 
 def main():
-    print(rapidfuzz.fuzz.ratio('hello', 'hello'))
+    print(fuzz.ratio('hello', 'hello'))
 
 
 
