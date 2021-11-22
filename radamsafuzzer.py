@@ -30,11 +30,11 @@ def main():
     
     rad = pyradamsa.Radamsa()
     seed = b'1+1'
-    fuzz = 0
-    for i in range(TRIALS):
+    
+    for _ in range(TRIALS):
         fuzz = rad.fuzz(seed)
 
-        while (chr(0) in fuzz): # discard fuzz that has the null character in it to avoid null byte error.
+        while (b'\x00' in fuzz): # discard fuzz that has the null character in it to avoid null byte error.
            fuzz = rad.fuzz(seed)
            
         result = subprocess.run([c_file_path, fuzz], stdout=subprocess.PIPE, stderr=subprocess.PIPE)

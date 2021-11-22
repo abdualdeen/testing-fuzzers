@@ -130,3 +130,10 @@ dmypy.json
 
 # history plugin
 .history
+
+# c file
+calc
+*.gcov
+*.gcda
+*.gcno
+crash-*
