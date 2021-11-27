@@ -1,0 +1,24 @@
+`python3 fuzzingbookfuzzer.py ./triangle 7,7,7`
+
+===Run 1 output===
+Input population that changed coverage:  ['7,7,7', "7,'\x0c7", '3,7,7xK']
+Program output from population inputs:  [b'The Given Triangle is equilateral\n', b'wrong format!\nThe given Triangle is scalene\n', b'The given Triangle is isosceles\n']
+Trials run:  3000
+[3, 4, 11, 12, 13, 14, 18, 19, 20, 21, 23, 24]  lines:  12
+--- 18.172293424606323 seconds ---
+
+
+===Run 2 output===
+Input population that changed coverage:  ['7,7,7', '7,', '7,7$']
+Program output from population inputs:  [b'The Given Triangle is equilateral\n', b'wrong format!\nThe given Triangle is scalene\n', b'wrong format!\nThe given Triangle is isosceles\n']
+Trials run:  3000
+[3, 4, 11, 12, 13, 14, 18, 19, 20, 21, 23, 24]  lines:  12
+--- 17.872386932373047 seconds ---
+
+
+===Run 3 output===
+Input population that changed coverage:  ['7,7,7', '57(,7B', '7,7-,7']
+Program output from population inputs:  [b'The Given Triangle is equilateral\n', b'wrong format!\nThe given Triangle is scalene\n', b'wrong format!\nThe given Triangle is isosceles\n']
+Trials run:  3000
+[3, 4, 11, 12, 13, 14, 18, 19, 20, 21, 23, 24]  lines:  12
+--- 17.941248416900635 seconds ---

@@ -120,23 +120,24 @@ class MutationFuzzer(Fuzzer):
 
 # === ... === #
 
-TRIALS = 5500
+TRIALS = 3000
 
 def main():
     startTime = time.time()
-    c_file_path = sys.argv[1] # take the path of the executable given from the command line.
-    seed = [sys.argv[2]]
-    c_file_gcov = c_file_path + '.c' # append '.c' to that so that the read_gcov_coverage() function can recognize it and read the gcov file.
+    exe_file_path = sys.argv[1] # take the path of the executable given from the command line.
+    seedInput = [sys.argv[2]]
+    c_file_gcov = exe_file_path + '.c' # append '.c' to that so that the read_gcov_coverage() function can recognize it and read the gcov file.
     random.seed() 
     
     silence_arg = ' >/dev/null 2>&1' # append to commands run so that it doesn't display in the terminal.
-    clean_command = 'rm ' + c_file_path + '.c.gcov' + ' ' + c_file_path + '.gcda' + silence_arg
-    command = 'gcov ' + c_file_path + silence_arg + silence_arg
+    clean_command = 'rm ' + exe_file_path + '.c.gcov' + ' ' + exe_file_path + '.gcda' + silence_arg
+    command = 'gcov ' + exe_file_path + silence_arg + silence_arg
     os.system(clean_command) # clean previous coverage files for fresh run.
     os.system(command) # running the gcov command at the start to generate the first gcov file.
     
-    mutation = MutationFuzzer(seed=seed, min_mutations=2, max_mutations=5)
+    mutation = MutationFuzzer(seed=seedInput, min_mutations=2, max_mutations=5)
     prev = read_gcov_coverage(c_file_gcov) # reading the initial gcov file for later comparison.
+    program_output = []
     
     for i in range(TRIALS):
         fuzz = mutation.fuzz()
@@ -145,20 +146,24 @@ def main():
             fuzz = mutation.fuzz()
             
         if (i == 0):
-            result = subprocess.run([c_file_path, seed[0]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            result = subprocess.run([exe_file_path, seedInput[0]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            program_output.append(result.stdout)
         
         else:
-            result = subprocess.run([c_file_path, fuzz], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            result = subprocess.run([exe_file_path, fuzz], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
+        # print(result)
         os.system(command) # generate new gcov file for comparison to previous.
         curr = read_gcov_coverage(c_file_gcov)
-        if (result.returncode == 0 and not i == 0 and fuzz not in mutation.population and not len(prev) == len(curr)):
+        if (not i == 0 and fuzz not in mutation.population and not len(prev) == len(curr)):
             mutation.population.append(fuzz)
+            program_output.append(result.stdout)
             prev = curr
         
         
     os.system(command)
-    print('Population: ', mutation.population)
+    print('Input population that changed coverage: ', mutation.population)
+    print('Program output from population inputs: ', program_output)
     print('Trials run: ', TRIALS)
     print(sorted(read_gcov_coverage(c_file_gcov)), ' lines: ', len(read_gcov_coverage(c_file_gcov)))
     print("--- %s seconds ---" % (time.time() - startTime))

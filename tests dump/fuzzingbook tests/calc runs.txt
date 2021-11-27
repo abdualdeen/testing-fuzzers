@@ -1,0 +1,25 @@
+`python3 fuzzingbookfuzzer.py ./calc 10+10`
+
+
+===Run 1 output===
+Input population that changed coverage:  ['10+10', '10+D90', '1b0+160}', '1*1', '18/ 02', '18- 03']
+Program output from population inputs:  [b'10+10 = 20.000000\n', b'wrong format!\n', b'invalid operator. calc only supports: + - * /\n1b0+160} = 0.000000\n', b'1*1 = 1.000000\n', b'18/ 02 = 9.000000\n', b'18- 03 = 15.000000\n']
+Trials run:  3000
+[9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 25, 26, 31, 33, 35, 36, 38, 42]  lines:  21
+--- 17.692957401275635 seconds ---
+
+
+===Run 2 output===
+Input population that changed coverage:  ['10+10', '2+10', 'N2+10\x1c', '9?+10', '21*8', '5/0+1', '6-10']
+Program output from population inputs:  [b'10+10 = 20.000000\n', b'2+10 = 12.000000\n', b'wrong format!\n', b'invalid operator. calc only supports: + - * /\n9?+10 = 0.000000\n', b'21*8 = 168.000000\n', b'5/0+1 = inf\n', b'6-10 = -4.000000\n']
+Trials run:  3000
+[9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 25, 26, 31, 33, 35, 36, 38, 42]  lines:  21
+--- 18.480947256088257 seconds ---
+
+
+===Run 3 output===
+Input population that changed coverage:  ['10+10', 'c1010C3', '10~+0', '1-0+10w', '10/0', '0*1F0']
+Program output from population inputs:  [b'10+10 = 20.000000\n', b'wrong format!\n', b'invalid operator. calc only supports: + - * /\n10~+0 = 0.000000\n', b'1-0+10w = 1.000000\n', b'10/0 = inf\n', b'0*1F0 = 0.000000\n']
+Trials run:  3000
+[9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 25, 26, 31, 33, 35, 36, 38, 42]  lines:  21
+--- 18.301846742630005 seconds ---

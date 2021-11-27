@@ -1,0 +1,24 @@
+`python3 fuzzingbookfuzzer.py ./doom_fast_inverse_sqrt 7` 
+
+===Run 1 output===
+Input population that changed coverage:  ['7', 'H7 ']
+Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
+Trials run:  3000
+[3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
+--- 17.94335699081421 seconds ---
+
+
+===Run 2 output===
+Input population that changed coverage:  ['7', '\x07z']
+Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
+Trials run:  3000
+[3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
+--- 18.435949563980103 seconds ---
+
+
+===Run 1 output===
+Input population that changed coverage:  ['7', '']
+Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
+Trials run:  3000
+[3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
+--- 18.180333137512207 seconds ---

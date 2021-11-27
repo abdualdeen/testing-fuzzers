@@ -1,0 +1,29 @@
+System:    Kernel: 5.10.79-1-MANJARO x86_64 bits: 64 Desktop: KDE Plasma 5.23.3 Distro: Manjaro Linux
+Machine:   Type: Desktop Mobo: ASRock model: B450 Pro4 serial: <superuser required> UEFI: American Megatrends v: P1.80
+           date: 12/18/2018
+CPU:       Info: 6-Core model: AMD Ryzen 5 2600X bits: 64 type: MT MCP cache: L2: 3 MiB
+           Speed: 3681 MHz min/max: 2200/3600 MHz Core speeds (MHz): 1: 3681 2: 4216 3: 2195 4: 2195 5: 2121 6: 2120 7: 2121
+           8: 2120 9: 2195 10: 2194 11: 2196 12: 2195
+Graphics:  Device-1: NVIDIA GP104 [GeForce GTX 1070 Ti] driver: nvidia v: 495.44
+           Display: x11 server: X.Org 1.21.1.1 driver: loaded: nvidia resolution: 1: 1600x900~60Hz 2: 1920x1080
+           OpenGL: renderer: NVIDIA GeForce GTX 1070 Ti/PCIe/SSE2 v: 4.6.0 NVIDIA 495.44
+Audio:     Device-1: NVIDIA GP104 High Definition Audio driver: snd_hda_intel
+           Device-2: Advanced Micro Devices [AMD] Family 17h HD Audio driver: snd_hda_intel
+           Device-3: C-Media USB Audio Device type: USB driver: hid-generic,snd-usb-audio,usbhid
+           Sound Server-1: ALSA v: k5.10.79-1-MANJARO running: yes
+           Sound Server-2: PulseAudio v: 15.0 running: yes
+           Sound Server-3: PipeWire v: 0.3.40 running: yes
+Network:   Device-1: Realtek RTL8111/8168/8411 PCI Express Gigabit Ethernet driver: r8169
+           IF: enp37s0 state: up speed: 1000 Mbps duplex: full mac: 70:85:c2:ad:6d:91
+           IF-ID-1: wgpia0 state: unknown speed: N/A duplex: N/A mac: N/A
+Drives:    Local Storage: total: 1.6 TiB used: 844.85 GiB (51.5%)
+           ID-1: /dev/nvme0n1 vendor: PNY model: CS3030 250GB SSD size: 232.89 GiB
+           ID-2: /dev/sda vendor: Intel model: SSDSC2KW512G8 size: 476.94 GiB
+           ID-3: /dev/sdb vendor: Seagate model: ST1000DM003-1ER162 size: 931.51 GiB
+Partition: ID-1: / size: 228.39 GiB used: 119.41 GiB (52.3%) fs: btrfs dev: /dev/nvme0n1p2
+           ID-2: /boot/efi size: 499 MiB used: 708 KiB (0.1%) fs: vfat dev: /dev/nvme0n1p1
+           ID-3: /home size: 228.39 GiB used: 119.41 GiB (52.3%) fs: btrfs dev: /dev/nvme0n1p2
+Swap:      ID-1: swap-1 type: partition size: 4 GiB used: 4.9 MiB (0.1%) dev: /dev/nvme0n1p3
+Sensors:   System Temperatures: cpu: 38.0 C mobo: N/A gpu: nvidia temp: 34 C
+           Fan Speeds (RPM): N/A gpu: nvidia fan: 44%
+Info:      Processes: 371 Uptime: 3d 11h 1m Memory: 15.62 GiB used: 7.51 GiB (48.1%) Shell: Zsh inxi: 3.3.09
