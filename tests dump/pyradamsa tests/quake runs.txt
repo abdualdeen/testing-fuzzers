@@ -1,24 +1,26 @@
-`python3 fuzzingbookfuzzer.py ./doom_fast_inverse_sqrt 7` 
+`python3 radamsafuzzer.py ./quake_fast_inverse_sqrt 7` 
+
 
 ===Run 1 output===
-Input population that changed coverage:  ['7', 'H7 ']
+Population:  [b'7', b'\xf3\xa0\x80\xb7\xc0\xb7']
 Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
 Trials run:  3000
 [3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
---- 17.94335699081421 seconds ---
+--- 22.39627504348755 seconds ---
 
 
 ===Run 2 output===
-Input population that changed coverage:  ['7', '\x07z']
+Population:  [b'7', b'++/v/7']
 Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
 Trials run:  3000
 [3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
---- 18.435949563980103 seconds ---
+--- 22.212010145187378 seconds ---
 
 
-===Run 1 output===
-Input population that changed coverage:  ['7', '']
-Program output from population inputs:  [b'0.377444', b'19817753709685768192.000000']
+===Run  output===
+
+Population:  [b'7', b'-34028236692093863463374607431768211455']
+Program output from population inputs:  [b'0.377444', b'-inf']
 Trials run:  3000
 [3, 7, 9, 10, 11, 12, 13, 14, 17, 20, 21, 26, 27, 29, 30, 31]  lines:  16
---- 18.180333137512207 seconds ---
+--- 22.09156107902527 seconds ---
